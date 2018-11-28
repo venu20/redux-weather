@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/style/style.css">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm-F5QS7oaVHGCSmFasLN4LeqTpZGwSms"></script>
+   </head>
+  <body>
+    <div class="container"></div>
+
+  </body>
+  <script src="/bundle.js"></script>
+  <script type="text/javascript">
+  var arr = [34,8,10,3,2,80,30,33,1]
+  var maxJ,minI;
+  //arr[j] > arr[i] => j-i (j>i)
+  function findDistance( maxJ, minI){
+    if(arr.length <= 0 ){
+      return;
+    }
+    if(arr.length >= 1 && minI<maxJ && arr[maxJ]>arr[minI]){
+      console.log('Combination is');
+      console.log('MaxJ: '+arr[maxJ]);
+      console.log('MinI: '+arr[minI]);
+      console.log(maxJ-minI)
+      console.log('---------------------')
+        return (maxJ-minI);
+    }
+  }
+
+  function getPairs(arr){
+    for(maxJ=arr.length-1; maxJ >0 ;maxJ--) {
+      for(minI=0;minI < maxJ; minI++){
+      findDistance(maxJ, minI)
+      }
+  }
+  }
+  getPairs(arr);
+
+  console.log(arr.map(function(a,b){if(a>b){return a}else{return b;}}))
+  </script>
+</html>
